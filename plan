@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>網頁設計 · 讓您的店被看見</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600&family=Noto+Sans+TC:wght@300;400;500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:      #F5F0EB;
+  --bg2:     #EDEBE6;
+  --bg3:     #E5E1DA;
+  --white:   #FAF8F5;
+  --text:    #2A2520;
+  --text2:   #5A5550;
+  --muted:   #9A9490;
+  --line:    #D8D4CE;
+  --accent:  #3D3830;
+  --red:     #C0392B;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+/* ── TOP BAR ── */
+#topbar {
+  position: fixed;
+  top:0; left:0; right:0;
+  z-index: 100;
+  height: 52px;
+  background: rgba(245,240,235,0.95);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 3rem;
+  backdrop-filter: blur(8px);
+}
+.topbar-logo {
+  font-family: 'EB Garamond', serif;
+  font-size: 17px;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+}
+.topbar-nav {
+  display: flex;
+  gap: 2rem;
+}
+.topbar-nav a {
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--text2);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.topbar-nav a:hover { color: var(--accent); }
+
+/* ── HERO ── */
+#hero {
+  min-height: 100vh;
+  padding-top: 52px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+}
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 6rem 4rem 6rem 3rem;
+  background: var(--white);
+}
+.hero-right {
+  background: var(--bg3);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-right-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.35;
+  background-image:
+    repeating-linear-gradient(0deg, transparent, transparent 40px, var(--line) 40px, var(--line) 41px),
+    repeating-linear-gradient(90deg, transparent, transparent 40px, var(--line) 40px, var(--line) 41px);
+}
+.hero-right-center {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 2rem;
+}
+.hero-circle {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 2rem;
+  background: var(--white);
+}
+.hero-circle-inner {
+  font-family: 'EB Garamond', serif;
+  font-size: 38px;
+  font-weight: 400;
+  color: var(--accent);
+  line-height: 1;
+}
+.hero-circle-sub {
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  color: var(--muted);
+  margin-top: 6px;
+  text-transform: uppercase;
+}
+
+.hero-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+.hero-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(32px, 3.5vw, 52px);
+  font-weight: 300;
+  line-height: 1.4;
+  color: var(--accent);
+  margin-bottom: 2rem;
+}
+.hero-title strong {
+  font-weight: 600;
+  display: block;
+}
+.hero-body {
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 2;
+  margin-bottom: 3rem;
+  max-width: 400px;
+}
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--accent);
+  color: var(--bg);
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 13px 28px;
+  text-decoration: none;
+  transition: all 0.25s;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+.hero-cta:hover { background: var(--text); }
+.hero-cta-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: 1px solid var(--line);
+  color: var(--text2);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 13px 28px;
+  text-decoration: none;
+  transition: all 0.25s;
+  font-family: 'Noto Sans TC', sans-serif;
+  margin-left: 1rem;
+}
+.hero-cta-ghost:hover { border-color: var(--accent); color: var(--accent); }
+.hero-stats {
+  display: flex;
+  gap: 2.5rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+}
+.hero-stat-num {
+  font-family: 'EB Garamond', serif;
+  font-size: 32px;
+  color: var(--accent);
+  line-height: 1;
+}
+.hero-stat-label {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  margin-top: 4px;
+}
+
+/* ── SECTIONS ── */
+.section {
+  padding: 7rem 3rem;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.section-sm {
+  padding: 5rem 3rem;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.sec-label {
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.sec-label::before {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--muted);
+}
+.sec-heading {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(24px, 3vw, 38px);
+  font-weight: 300;
+  color: var(--accent);
+  line-height: 1.4;
+  margin-bottom: 1.25rem;
+}
+.sec-heading strong { font-weight: 600; }
+.sec-body {
+  font-size: 14px;
+  color: var(--text2);
+  line-height: 2;
+  max-width: 520px;
+}
+
+/* ── DIVIDER ── */
+.divider {
+  height: 1px;
+  background: var(--line);
+  margin: 0 3rem;
+}
+
+/* ── WHAT I DO ── */
+#services { background: var(--white); }
+.services-inner {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+.service-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: 1rem;
+}
+.service-item {
+  border-top: 1px solid var(--line);
+  padding: 1.75rem 0;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.service-item:last-child { border-bottom: 1px solid var(--line); }
+.service-num {
+  font-family: 'EB Garamond', serif;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+.service-name {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+.service-desc {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.7;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.service-item:hover .service-desc { max-height: 80px; color: var(--text2); }
+
+.service-right {
+  padding-top: 1rem;
+}
+.service-visual {
+  background: var(--bg3);
+  border: 1px solid var(--line);
+  padding: 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background-color: var(--line);
+}
+.sv-item {
+  background: var(--bg);
+  padding: 1.5rem;
+  text-align: center;
+}
+.sv-icon { font-size: 24px; margin-bottom: 8px; }
+.sv-label { font-size: 11px; color: var(--text2); letter-spacing: 0.05em; }
+
+/* ── PLANS ── */
+.plans-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  margin-top: 3rem;
+}
+.plan {
+  background: var(--white);
+  padding: 2.5rem 2rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: background 0.3s;
+}
+.plan:hover { background: var(--bg2); }
+.plan.featured {
+  background: var(--accent);
+  color: var(--bg);
+}
+.plan.featured:hover { background: var(--text); }
+.plan-tag {
+  font-size: 9px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1.25rem;
+}
+.plan.featured .plan-tag { color: rgba(245,240,235,0.5); }
+.plan-name-text {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+.plan.featured .plan-name-text { color: var(--bg); }
+.plan-amount {
+  font-family: 'EB Garamond', serif;
+  font-size: 48px;
+  font-weight: 400;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+.plan.featured .plan-amount { color: var(--bg); }
+.plan-currency {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+.plan.featured .plan-currency { color: rgba(245,240,235,0.5); }
+.plan-sep {
+  height: 1px;
+  background: var(--line);
+  margin-bottom: 1.5rem;
+}
+.plan.featured .plan-sep { background: rgba(245,240,235,0.15); }
+.plan-items {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  flex: 1;
+}
+.plan-items li {
+  font-size: 12px;
+  color: var(--text2);
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  line-height: 1.5;
+}
+.plan.featured .plan-items li { color: rgba(245,240,235,0.8); }
+.plan-items li.off { color: var(--muted); opacity: 0.5; }
+.plan-items li::before {
+  content: '—';
+  color: var(--muted);
+  flex-shrink: 0;
+  font-size: 11px;
+}
+.plan.featured .plan-items li::before { color: rgba(245,240,235,0.4); }
+.plan-btn-wrap { margin-top: 2rem; }
+.plan-btn {
+  display: block;
+  text-align: center;
+  padding: 11px 0;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.2s;
+  font-family: 'Noto Sans TC', sans-serif;
+  cursor: pointer;
+  border: none;
+  width: 100%;
+}
+.plan-btn.dark {
+  background: var(--accent);
+  color: var(--bg);
+}
+.plan-btn.dark:hover { background: var(--text); }
+.plan-btn.light {
+  background: none;
+  border: 1px solid var(--line);
+  color: var(--text2);
+}
+.plan-btn.light:hover { border-color: var(--accent); color: var(--accent); }
+.plan-btn.inv {
+  background: var(--bg);
+  color: var(--accent);
+}
+.plan-btn.inv:hover { background: var(--bg3); }
+
+/* ── ADDONS ── */
+.addon-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2rem;
+}
+.addon-table tr {
+  border-bottom: 1px solid var(--line);
+  transition: background 0.15s;
+}
+.addon-table tr:hover { background: var(--bg2); }
+.addon-table td {
+  padding: 1rem 0.5rem;
+  font-size: 13px;
+}
+.addon-table td:first-child { color: var(--text2); }
+.addon-table td:last-child {
+  text-align: right;
+  font-family: 'EB Garamond', serif;
+  font-size: 16px;
+  color: var(--accent);
+  white-space: nowrap;
+}
+.addon-table th {
+  padding: 0.75rem 0.5rem;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+}
+.addon-table th:last-child { text-align: right; }
+
+/* ── GUARANTEE ── */
+.guarantee-box {
+  background: var(--white);
+  border: 1px solid var(--line);
+  padding: 2.5rem 3rem;
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+.g-num {
+  font-family: 'EB Garamond', serif;
+  font-size: 72px;
+  font-weight: 400;
+  color: var(--line);
+  line-height: 1;
+}
+.g-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+.g-body { font-size: 13px; color: var(--text2); line-height: 1.9; }
+
+/* ── HOW ── */
+#how { background: var(--bg2); }
+.how-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin-top: 3rem;
+  border: 1px solid var(--line);
+}
+.how-step {
+  padding: 2rem 1.5rem;
+  border-right: 1px solid var(--line);
+  position: relative;
+  background: var(--white);
+  transition: background 0.2s;
+}
+.how-step:last-child { border-right: none; }
+.how-step:hover { background: var(--bg); }
+.how-n {
+  font-family: 'EB Garamond', serif;
+  font-size: 36px;
+  color: var(--line);
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+.how-title { font-size: 14px; font-weight: 500; color: var(--accent); margin-bottom: 0.5rem; }
+.how-desc { font-size: 12px; color: var(--muted); line-height: 1.7; }
+
+/* ── PAIN ── */
+.pain-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+.pain-list { list-style: none; margin-top: 1rem; }
+.pain-list li {
+  border-bottom: 1px solid var(--line);
+  padding: 1.25rem 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  font-size: 13px;
+  color: var(--text2);
+  line-height: 1.7;
+}
+.pain-list li .pi { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+.pain-right-block {
+  background: var(--accent);
+  color: var(--bg);
+  padding: 3rem 2.5rem;
+  position: sticky;
+  top: 6rem;
+}
+.pain-right-block .sec-heading { color: var(--bg); font-size: 22px; }
+.pain-right-block .sec-body { color: rgba(245,240,235,0.7); max-width: none; }
+.prb-stat {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.prb-row { border-top: 1px solid rgba(245,240,235,0.15); padding-top: 1.25rem; }
+.prb-num {
+  font-family: 'EB Garamond', serif;
+  font-size: 40px;
+  color: var(--bg);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.prb-label { font-size: 11px; color: rgba(245,240,235,0.5); letter-spacing: 0.08em; }
+
+/* ── CTA SECTION ── */
+#contact {
+  background: var(--white);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.contact-inner {
+  padding: 7rem 3rem;
+  max-width: 1080px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+.contact-left .sec-heading { font-size: clamp(26px,3vw,42px); }
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.cf-label {
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  display: block;
+}
+.cf-input {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  color: var(--text);
+  font-size: 13px;
+  padding: 10px 14px;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 300;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.cf-input:focus { border-color: var(--accent); }
+.cf-select {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  color: var(--text);
+  font-size: 13px;
+  padding: 10px 14px;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 300;
+  outline: none;
+  appearance: none;
+  cursor: pointer;
+}
+.cf-select option { background: var(--bg); }
+.cf-submit {
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 14px;
+  cursor: pointer;
+  font-family: 'Noto Sans TC', sans-serif;
+  transition: background 0.2s;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+.cf-submit:hover { background: var(--text); }
+.cf-note {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-top: 0.5rem;
+}
+
+/* ── FOOTER ── */
+footer {
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--line);
+  background: var(--bg);
+}
+.footer-brand {
+  font-family: 'EB Garamond', serif;
+  font-size: 16px;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+}
+.footer-copy {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
+
+/* ── REVEAL ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── SUCCESS ── */
+#form-success {
+  display: none;
+  text-align: center;
+  padding: 3rem;
+  background: var(--bg2);
+  border: 1px solid var(--line);
+}
+#form-success .fs-icon { font-size: 36px; margin-bottom: 1rem; }
+#form-success .fs-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 20px;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+}
+#form-success .fs-body { font-size: 13px; color: var(--text2); }
+
+@media (max-width: 768px) {
+  #hero { grid-template-columns: 1fr; }
+  .hero-right { display: none; }
+  .services-inner { grid-template-columns: 1fr; }
+  .plans-grid { grid-template-columns: 1fr; }
+  .how-steps { grid-template-columns: 1fr 1fr; }
+  .pain-cols { grid-template-columns: 1fr; }
+  .contact-inner { grid-template-columns: 1fr; }
+  footer { flex-direction: column; gap: 1rem; text-align: center; }
+  #topbar { padding: 0 1.5rem; }
+  .topbar-nav { display: none; }
+  .section, .section-sm { padding: 4rem 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── TOP BAR ── -->
+<div id="topbar">
+  <div class="topbar-logo">Web Design Studio</div>
+  <nav class="topbar-nav">
+    <a href="#services">服務項目</a>
+    <a href="#pricing">方案報價</a>
+    <a href="#how">合作流程</a>
+    <a href="#contact">立即諮詢</a>
+  </nav>
+</div>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">餐廳網頁設計 · 數位品牌建立</p>
+    <h1 class="hero-title">
+      讓您的餐廳<br>
+      <strong>被全世界看見</strong>
+    </h1>
+    <p class="hero-body">專為台灣餐廳打造的多語系官網，內建線上訂位與後台管理。從設計到上線，讓客人 24 小時都能找到您。</p>
+    <div>
+      <a href="#pricing" class="hero-cta">查看方案 →</a>
+      <a href="#contact" class="hero-cta-ghost">免費諮詢</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">4</div>
+        <div class="hero-stat-label">語言支援</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">7天</div>
+        <div class="hero-stat-label">最快交付</div>
+      </div>
+      <div>
+        <div class="hero-stat-num">NT$0</div>
+        <div class="hero-stat-label">先看草稿再付款</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-pattern"></div>
+    <div class="hero-right-center">
+      <div class="hero-circle">
+        <div class="hero-circle-inner">網</div>
+        <div class="hero-circle-sub">Web Design</div>
+      </div>
+      <p style="font-size:12px;color:var(--muted);letter-spacing:0.15em;">設計 · 開發 · 上線</p>
+      <p style="font-size:11px;color:var(--muted);margin-top:6px;letter-spacing:0.08em;">DESIGN · BUILD · LAUNCH</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── PROBLEM ── -->
+<section class="section reveal">
+  <div class="pain-cols">
+    <div>
+      <p class="sec-label">您目前面臨的問題</p>
+      <h2 class="sec-heading">沒有網站，<strong>等於把客人送給對手</strong></h2>
+      <p class="sec-body">現在的客人訂位前都先 Google，找不到您就找別人。每天都在流失潛在顧客。</p>
+      <ul class="pain-list">
+        <li><span class="pi">📵</span><span><strong>電話訂位佔線</strong><br>員工分心接電話，影響現場服務品質，客人等不到就掛斷換別家。</span></li>
+        <li><span class="pi">🌏</span><span><strong>外國客看不懂菜單</strong><br>日韓觀光客、外籍人士想來消費，卻找不到英文或日文資訊而放棄。</span></li>
+        <li><span class="pi">🔍</span><span><strong>Google 搜尋找不到你</strong><br>沒有官網就沒有搜尋排名，客人找餐廳時永遠看到你的競爭對手。</span></li>
+        <li><span class="pi">📋</span><span><strong>菜單資訊散落四處</strong><br>用 Facebook 貼菜單很難找，客人來了才發現某道菜沒有，體驗差。</span></li>
+      </ul>
+    </div>
+    <div>
+      <div class="pain-right-block reveal">
+        <h3 class="sec-heading">一個官網<br><strong>解決以上全部</strong></h3>
+        <p class="sec-body">我幫您打造的不只是一個網頁，而是您店的數位門面，全年無休幫您招客。</p>
+        <div class="prb-stat">
+          <div class="prb-row">
+            <div class="prb-num">24h</div>
+            <div class="prb-label">線上訂位自動接單，無需人工</div>
+          </div>
+          <div class="prb-row">
+            <div class="prb-num">4語</div>
+            <div class="prb-label">中英日韓，外國客人直接看懂</div>
+          </div>
+          <div class="prb-row">
+            <div class="prb-num">NT$0</div>
+            <div class="prb-label">先看草稿，滿意再付款，零風險</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── SERVICES ── -->
+<section id="services" style="background:var(--white)">
+  <div class="section reveal">
+    <div class="services-inner">
+      <div>
+        <p class="sec-label">我能為您做什麼</p>
+        <h2 class="sec-heading">服務<strong>項目</strong></h2>
+        <p class="sec-body" style="margin-bottom:0;">從設計到上線，完整包辦，您不需要懂任何技術。</p>
+
+        <div class="service-list" style="margin-top:2rem">
+          <div class="service-item">
+            <div class="service-num">01</div>
+            <div class="service-name">多語系官網設計</div>
+            <div class="service-desc">中英日韓四語切換，手機平板電腦完美顯示，專為餐廳設計的視覺風格。</div>
+          </div>
+          <div class="service-item">
+            <div class="service-num">02</div>
+            <div class="service-name">互動式菜單系統</div>
+            <div class="service-desc">分類清楚、價格標示、食材說明，讓客人在家就能瀏覽，來店前心裡已有選擇。</div>
+          </div>
+          <div class="service-item">
+            <div class="service-num">03</div>
+            <div class="service-name">線上訂位 & 後台管理</div>
+            <div class="service-desc">客人自助填寫訂位，您在後台一目瞭然，可確認、取消、匯出 CSV 報表。</div>
+          </div>
+          <div class="service-item">
+            <div class="service-num">04</div>
+            <div class="service-name">網站上線與維護</div>
+            <div class="service-desc">協助申請網址、部署上線，後續菜單更新、照片替換，一通訊息搞定。</div>
+          </div>
+        </div>
+      </div>
+      <div class="service-right reveal">
+        <div class="service-visual">
+          <div class="sv-item"><div class="sv-icon">🌐</div><div class="sv-label">官網設計</div></div>
+          <div class="sv-item"><div class="sv-icon">📱</div><div class="sv-label">手機適配</div></div>
+          <div class="sv-item"><div class="sv-icon">📅</div><div class="sv-label">線上訂位</div></div>
+          <div class="sv-item"><div class="sv-icon">⚙️</div><div class="sv-label">後台管理</div></div>
+          <div class="sv-item"><div class="sv-icon">🌏</div><div class="sv-label">四語支援</div></div>
+          <div class="sv-item"><div class="sv-icon">🚀</div><div class="sv-label">快速上線</div></div>
+        </div>
+        <div style="padding:2rem;background:var(--bg2);border:1px solid var(--line);border-top:none;">
+          <p style="font-size:12px;color:var(--muted);line-height:1.9;letter-spacing:0.03em;">每一個網站都是客製化製作，依照您餐廳的風格與需求量身打造。不使用制式模板，不走流水線。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── PRICING ── -->
+<section class="section reveal" id="pricing">
+  <p class="sec-label">透明定價</p>
+  <h2 class="sec-heading">方案<strong>與報價</strong></h2>
+  <p class="sec-body">三種方案對應不同需求，價格清楚無隱藏費用。首次合作提供免費草稿，滿意再付款。</p>
+
+  <div class="plans-grid">
+    <div class="plan">
+      <p class="plan-tag">基本方案</p>
+      <p class="plan-name-text">Basic</p>
+      <div class="plan-amount">8,000</div>
+      <div class="plan-currency">NT$ · 交付 5–7 天</div>
+      <div class="plan-sep"></div>
+      <ul class="plan-items">
+        <li>單頁式官網（手機電腦適配）</li>
+        <li>餐廳基本資訊頁</li>
+        <li>靜態菜單展示</li>
+        <li>Google Maps 連結</li>
+        <li>Facebook / Instagram 連結</li>
+        <li class="off">多語系（需加購）</li>
+        <li class="off">訂位系統（需加購）</li>
+        <li class="off">後台管理（需加購）</li>
+      </ul>
+      <div class="plan-btn-wrap">
+        <a href="#contact" class="plan-btn light">選擇此方案</a>
+      </div>
+    </div>
+
+    <div class="plan featured">
+      <p class="plan-tag">⭐ 最多人選擇</p>
+      <p class="plan-name-text">Professional</p>
+      <div class="plan-amount">18,000</div>
+      <div class="plan-currency">NT$ · 交付 10–14 天</div>
+      <div class="plan-sep"></div>
+      <ul class="plan-items">
+        <li>基本方案全部內容</li>
+        <li>中 / 英 / 日 / 韓 四語切換</li>
+        <li>互動式菜單（分類 + 價格）</li>
+        <li>線上訂位系統</li>
+        <li>後台管理系統</li>
+        <li>今日特餐區塊</li>
+        <li>交通資訊 + FAQ 頁</li>
+        <li>精選照片展示牆</li>
+      </ul>
+      <div class="plan-btn-wrap">
+        <a href="#contact" class="plan-btn inv">選擇此方案</a>
+      </div>
+    </div>
+
+    <div class="plan">
+      <p class="plan-tag">尊榮方案</p>
+      <p class="plan-name-text">Premium</p>
+      <div class="plan-amount">32,000</div>
+      <div class="plan-currency">NT$ · 交付 14–21 天</div>
+      <div class="plan-sep"></div>
+      <ul class="plan-items">
+        <li>專業版全部內容</li>
+        <li>專屬網址購買與設定</li>
+        <li>Netlify 正式上線部署</li>
+        <li>最多 10 張實拍照片排版</li>
+        <li>3 個月免費維護</li>
+        <li>後台操作一對一教學</li>
+        <li>緊急技術支援 3 個月</li>
+        <li>SEO 基礎優化</li>
+      </ul>
+      <div class="plan-btn-wrap">
+        <a href="#contact" class="plan-btn light">選擇此方案</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add-ons -->
+  <p class="sec-label" style="margin-top:4rem">加購項目</p>
+  <table class="addon-table">
+    <thead>
+      <tr><th>項目說明</th><th>費用</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>菜單內容更新（每次）</td><td>NT$ 500</td></tr>
+      <tr><td>新增語言版本（每種）</td><td>NT$ 2,000</td></tr>
+      <tr><td>照片上傳與排版（每批）</td><td>NT$ 800</td></tr>
+      <tr><td>月租維護 — 基本方案</td><td>NT$ 800 / 月</td></tr>
+      <tr><td>月租維護 — 專業方案</td><td>NT$ 1,200 / 月</td></tr>
+      <tr><td>自訂網址申請設定</td><td>NT$ 1,500</td></tr>
+    </tbody>
+  </table>
+
+  <!-- Guarantee -->
+  <div class="guarantee-box reveal">
+    <div class="g-num">0</div>
+    <div>
+      <div class="g-title">先看草稿，滿意再付款</div>
+      <p class="g-body">我先免費幫您製作草稿版本，您確認設計風格與功能符合期望後，再討論費用與付款方式。完全沒有預付的壓力，這是我對每一位客戶的承諾。</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── HOW ── -->
+<section id="how" style="background:var(--bg2)">
+  <div class="section reveal">
+    <p class="sec-label">合作流程</p>
+    <h2 class="sec-heading">四個步驟，<strong>從想法到上線</strong></h2>
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="how-n">01</div>
+        <div class="how-title">免費諮詢</div>
+        <div class="how-desc">告訴我您的店名和需求，LINE 或電話都可以，15 分鐘了解您的目標。</div>
+      </div>
+      <div class="how-step">
+        <div class="how-n">02</div>
+        <div class="how-title">草稿設計</div>
+        <div class="how-desc">我先製作完整草稿給您看，包含設計風格、功能展示，完全免費，滿意再談。</div>
+      </div>
+      <div class="how-step">
+        <div class="how-n">03</div>
+        <div class="how-title">修改確認</div>
+        <div class="how-desc">根據您的意見調整，直到完全符合您的想像為止，無限次修改直到滿意。</div>
+      </div>
+      <div class="how-step" style="border-right:none">
+        <div class="how-n">04</div>
+        <div class="how-title">上線交付</div>
+        <div class="how-desc">協助部署上線，教您使用後台，並在合約期間內提供技術支援。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ── CONTACT ── -->
+<div id="contact">
+  <div class="contact-inner">
+    <div class="contact-left reveal">
+      <p class="sec-label">現在就開始</p>
+      <h2 class="sec-heading">免費看看您的店<br><strong>做成網站是什麼樣子</strong></h2>
+      <p class="sec-body" style="margin-bottom:1.5rem">不用先付錢，不用準備什麼。告訴我您的店名，我先做一個草稿給您看。</p>
+      <p style="font-size:13px;color:var(--text2);line-height:2;">
+        📞 電話 / LINE：<strong>請填入您的聯絡方式</strong><br>
+        ⏰ 回覆時間：24 小時內<br>
+        📍 服務範圍：全台灣
+      </p>
+    </div>
+    <div class="reveal">
+      <div class="contact-form" id="contact-form">
+        <div>
+          <label class="cf-label">您的姓名 *</label>
+          <input class="cf-input" type="text" id="cf-name" placeholder="王老闆" />
+        </div>
+        <div>
+          <label class="cf-label">店名 *</label>
+          <input class="cf-input" type="text" id="cf-shop" placeholder="您的餐廳名稱" />
+        </div>
+        <div>
+          <label class="cf-label">聯絡電話 *</label>
+          <input class="cf-input" type="tel" id="cf-phone" placeholder="09XX-XXX-XXX" />
+        </div>
+        <div>
+          <label class="cf-label">感興趣的方案</label>
+          <select class="cf-select" id="cf-plan">
+            <option value="">— 請選擇 —</option>
+            <option>基本方案 NT$8,000</option>
+            <option>專業方案 NT$18,000</option>
+            <option>尊榮方案 NT$32,000</option>
+            <option>先看草稿再決定</option>
+          </select>
+        </div>
+        <button class="cf-submit" onclick="submitForm()">送出詢問，免費獲取草稿</button>
+        <p class="cf-note">送出後我會在 24 小時內與您聯絡，開始製作您的免費草稿。</p>
+      </div>
+      <div id="form-success">
+        <div class="fs-icon">✓</div>
+        <div class="fs-title">已收到您的詢問！</div>
+        <p class="fs-body">我會在 24 小時內與您聯絡，開始為您的餐廳製作草稿。期待與您合作。</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-brand">Web Design Studio</div>
+  <div class="footer-copy">專為台灣餐廳打造的多語系官網 · © 2025</div>
+</footer>
+
+<script>
+// Reveal on scroll
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Form submit
+function submitForm() {
+  const name  = document.getElementById('cf-name').value.trim();
+  const shop  = document.getElementById('cf-shop').value.trim();
+  const phone = document.getElementById('cf-phone').value.trim();
+  if(!name || !shop || !phone) {
+    alert('請填寫姓名、店名和聯絡電話');
+    return;
+  }
+  document.getElementById('contact-form').style.display = 'none';
+  document.getElementById('form-success').style.display = 'block';
+}
+</script>
+</body>
+</html>
